@@ -1,0 +1,17 @@
+noetic: http://wiki.ros.org/Installation/Source#noetic.2FInstallation.2FSource.Prerequisites
+- python3-rosdep
+    - DONE: rosinstall_generator
+        - DONE: rosdistro
+            - PyYAML >= 3.1
+            - setuptools
+    - DONE: catkin_pkg >= 0.4.0
+        - 'docutils'
+        - 'python-dateutil'
+        - 'pyparsing'
+        - 'setuptools'
+    - rospkg >= 1.4.0
+    - rosdistro >= 0.7.5
+- python3-rosinstall-generator
+- python3-vcstools
+- python3-vcstool
+- build-essential
