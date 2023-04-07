@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/ros-infrastructure/rosinstall_generator
+	branch = master
+	commit = 76ba9956920e38db9aaf3f163ff58fec5f56104a
+	parent = 3551702a00da215e41139244644f83263013bae4
+	method = merge
+	cmdver = 0.4.1
