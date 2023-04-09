@@ -514,9 +514,34 @@ def find_resource(pkg, resource_name, filter_fn=None, rospack=None):
 
     if rospack is None:
         rospack = rospkg.RosPack()
-
+    
     # lookup package as it *must* exist
-    pkg_path = rospack.get_path(pkg)
+    try:
+        pkg_path = rospack.get_path(pkg)
+    except Exception as error:
+        import os
+        relative_portion = os.path.join(os.path.dirname(__file__), "..","..","..","..","..","..",)
+        builtin_path = dict(
+            rosbag="repos/ros_comm/tools/rosbag",
+            rosbag_storage="repos/ros_comm/tools/rosbag_storage",
+            rosgraph="repos/ros_comm/tools/rosgraph",
+            roslaunch="repos/ros_comm/tools/roslaunch",
+            rosmaster="repos/ros_comm/tools/rosmaster",
+            rosmsg="repos/ros_comm/tools/rosmsg",
+            rosnode="repos/ros_comm/tools/rosnode",
+            rosout="repos/ros_comm/tools/rosout",
+            rosparam="repos/ros_comm/tools/rosparam",
+            rosservice="repos/ros_comm/tools/rosservice",
+            rostest="repos/ros_comm/tools/rostest",
+            rostopic="repos/ros_comm/tools/rostopic",
+            topic_tools="repos/ros_comm/tools/topic_tools",
+        ).get(pkg, None)
+        if builtin_path:
+            output_path = os.path.join(relative_portion, builtin_path)
+            print(f'''output_path = {output_path}''')
+            return output_path
+        
+        raise error
 
     source_path_to_packages = rospack.get_custom_cache('source_path_to_packages', {})
 

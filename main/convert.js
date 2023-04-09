@@ -116,15 +116,17 @@ while (defineLater.length > 0) {
 }
 
 
-
-// from ctypes import *
-// class a_struct(Structure):
-//     _pack_ = 1
-//     _fields_ = [
-//         ("p"    , c_void_p  ),
-//         ("magic_number"    , c_uint8   ),
-//         ("horizontal_angle", c_float   ),
-//         ("vertical_angle"  , c_float   ),
-//         ("depth"           , c_float   ),
-//         ("status"          , c_uint8   ),
-//     ]
+// import genpy.message
+// class Log(genpy.message.Message):
+//     _type = 'rosgraph_msgs/Log'
+//     _md5sum = 'acffd30cd6b6de30f120938c17c593fb'
+//     _has_header = True
+//     _full_text = "##\n## Severity level constants\n##\nbyte DEBUG=1 #debug level\nbyte INFO=2  #general level\nbyte WARN=4  #warning level\nbyte ERROR=8 #error level\nbyte FATAL=16 #fatal/critical level\n##\n## Fields\n##\nHeader header\nbyte level\nstring name # name of the node\nstring msg # message \nstring file # file the message came from\nstring function # function the message came from\nuint32 line # line the message came from\nstring[] topics # topic names that the node publishes\n\n================================================================================\nMSG: std_msgs/Header\n# Standard metadata for higher-level stamped data types.\n# This is generally used to communicate timestamped data \n# in a particular coordinate frame.\n# \n# sequence ID: consecutively increasing ID \nuint32 seq\n#Two-integer timestamp that is expressed as:\n# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')\n# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')\n# time-handling sugar is provided by the client library\ntime stamp\n#Frame this data is associated with\nstring frame_id\n"
+//     DEBUG=1
+//     INFO=2
+//     WARN=4
+//     ERROR=8
+//     FATAL=16
+//     __slots__ = [ 'header', 'level', 'name', 'msg', 'file', 'function', 'line', 'topics',  ]
+//     def _get_types(self):
+//         return ['std_msgs/Header', 'byte', 'string', 'string', 'string', 'string', 'uint32', 'string[]']

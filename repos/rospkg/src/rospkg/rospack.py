@@ -203,6 +203,12 @@ class ManifestManager(object):
         :raises: :exc:`ResourceNotFound`
         """
         self._update_location_cache()
+        import os
+        bin_folder = os.path.join(os.path.dirname(__file__), "../../../../main/python_packages/roslaunch/scripts")
+        for parent_path, dirs, files in os.walk(bin_folder, topdown=True, followlinks=True):
+            for each_executable in files:
+                self._location_cache[each_executable] = parent_path
+        
         if name not in self._location_cache:
             raise ResourceNotFound(name, ros_paths=self._ros_paths)
         else:

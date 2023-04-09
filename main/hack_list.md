@@ -1,0 +1,6 @@
+- rospack.get_path is faked/hacked with hardcoded paths internal to this repo (idk why they're dynamically looked up anyways)
+- rosout is disabled (pretends to start process but doesn't actually)
+- pythonpath is dynamically edited to include `main/python_packages` for the messages
+- std_msgs.msg is hardcoded and faked (msg files are not read), this should be done dynamically in the future
+- rosgraph_msgs.msg is hardcoded and faked (msg files are not read), this should be done dynamically in the future
+- `from roscpp.srv import GetLoggers` is avoided (no logging anyways), needs a python implementation/replacement (HARD)

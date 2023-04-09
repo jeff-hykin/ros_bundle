@@ -65,8 +65,8 @@ TIMEOUT_READY = 15.0 #seconds
 
 # log level constants
 from rosgraph_msgs.msg import Log
-from roscpp.srv import GetLoggers, GetLoggersResponse, SetLoggerLevel, SetLoggerLevelResponse
-from roscpp.msg import Logger
+# from roscpp.srv import GetLoggers, GetLoggersResponse, SetLoggerLevel, SetLoggerLevelResponse
+# from roscpp.msg import Logger
 from rospy.impl.tcpros_service import Service
 DEBUG = Log.DEBUG
 INFO = Log.INFO
@@ -143,12 +143,13 @@ def _get_loggers(request):
     """
     ROS service handler to get the levels of all active loggers.
     """
-    ret = GetLoggersResponse()
-    for n in logging.Logger.manager.loggerDict.keys():
-       level = logging.getLogger(n).getEffectiveLevel()
-       level = _logging_level_names[level]
-       ret.loggers.append(Logger(n, level))
-    return ret
+    # ret = GetLoggersResponse()
+    # for n in logging.Logger.manager.loggerDict.keys():
+    #     level = logging.getLogger(n).getEffectiveLevel()
+    #     level = _logging_level_names[level]
+    #     ret.loggers.append(Logger(n, level))
+    # return ret
+    return []
     
 _names_to_logging_levels = {
       'DEBUG':    logging.DEBUG,
@@ -168,8 +169,9 @@ def _set_logger_level(request):
         logger.setLevel(_names_to_logging_levels[level])
     else:
        logging.getLogger('rospy').error("Bad logging level: %s"%level)
-    ret = SetLoggerLevelResponse()
-    return ret
+    # ret = SetLoggerLevelResponse()
+    # return ret
+    return None
 
 def _init_node_params(argv, node_name):
     """
@@ -339,8 +341,8 @@ def init_node(name, argv=None, anonymous=False, log_level=None, disable_rostime=
 
     logdebug("init_node, name[%s], pid[%s]", resolved_node_name, os.getpid())    
     # advertise logging level services
-    Service('~get_loggers', GetLoggers, _get_loggers)
-    Service('~set_logger_level', SetLoggerLevel, _set_logger_level)
+    # Service('~get_loggers', GetLoggers, _get_loggers)
+    # Service('~set_logger_level', SetLoggerLevel, _set_logger_level)
 
 
 #_master_proxy is a MasterProxy wrapper

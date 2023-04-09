@@ -348,11 +348,13 @@ def main(argv=sys.argv):
             p.spin()
 
     except RLException as e:
+        raise e
         handle_exception(roslaunch_core, logger, "RLException: ", e)
     except ValueError as e:
         # TODO: need to trap better than this high-level trap
         handle_exception(roslaunch_core, logger, "Value error: ", e)
     except rospkg.ResourceNotFound as e:
+        raise e
         handle_exception(roslaunch_core, logger, "Resource not found: ", e)
     except Exception as e:
         traceback.print_exc()

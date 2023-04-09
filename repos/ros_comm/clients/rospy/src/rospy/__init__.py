@@ -43,7 +43,11 @@ See U{http://ros.org/wiki/rospy}
 # NOTE: there are much better ways to configure python module
 # dictionaries, but the rospy codebase isn't quite in shape for that
 # yet
-
+import sys
+import os
+python_path = os.path.join(os.path.dirname(__file__), "../../../../../../main/python_packages/")
+if python_path not in sys.path:
+    sys.path.append(python_path)
 from std_msgs.msg import Header
 
 from .client import spin, myargv, init_node, \

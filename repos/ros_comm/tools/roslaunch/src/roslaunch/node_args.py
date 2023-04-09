@@ -259,12 +259,10 @@ def create_local_process_args(node, machine, env=None):
         pass
     os_posix = os.name == "posix"
     args = shlex.split(resolved, posix=os_posix) + remap_args
-    try:
-        #TODO:fuerte: pass through rospack and catkin cache
-        matches = roslib.packages.find_node(node.package, node.type, rospack=rospack)
-    except rospkg.ResourceNotFound as e:
-        # multiple nodes, invalid package
-        raise NodeParamsException(str(e))
+    
+    #TODO:fuerte: pass through rospack and catkin cache
+    matches = roslib.packages.find_node(node.package, node.type, rospack=rospack)
+    
     if not matches:
         raise NodeParamsException("Cannot locate node of type [%s] in package [%s]. Make sure file exists in package path and permission is set to executable (chmod +x)"%(node.type, node.package))
     else:

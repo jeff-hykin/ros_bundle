@@ -337,7 +337,14 @@ class LocalProcess(Process):
                 close_file_descriptor = False
 
             try:
-                self.popen = subprocess.Popen(self.args, cwd=cwd, stdout=logfileout, stderr=logfileerr, env=full_env, close_fds=close_file_descriptor, preexec_fn=preexec_function)
+                # dont start rosout
+                if len(self.args) > 1 and self.args[1] == '__name:=rosout':
+                    self.popen = subprocess.Popen([ 'sleep', '4294967296' ], cwd=cwd, stdout=logfileout, stderr=logfileerr, env=full_env, close_fds=close_file_descriptor, preexec_fn=preexec_function)
+                    self.pid = self.popen.pid
+                    printlog_bold("process[%s]: started with pid [%s]"%(self.name, self.pid))
+                    return True
+                else:
+                    self.popen = subprocess.Popen(self.args, cwd=cwd, stdout=logfileout, stderr=logfileerr, env=full_env, close_fds=close_file_descriptor, preexec_fn=preexec_function)
             except OSError as e:
                 self.started = True # must set so is_alive state is correct
                 _logger.error("OSError(%d, %s)", e.errno, e.strerror)
