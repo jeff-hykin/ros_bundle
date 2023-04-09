@@ -1,4 +1,4 @@
-git subrepo clone https://github.com/ros-infrastructure/rospkg repos/rospkg
+git subrepo clone https://github.com/ros/rosconsole repos/rosconsole
 cd main
-ln -s ../../repos/rospkg python_packages/rospkg
+ln -s ../../repos/rosconsole unorganized/rosconsole
 cd ..
