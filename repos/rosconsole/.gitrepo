@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/ros/rosconsole
+	branch = noetic-devel
+	commit = c9503279e932a04b3d2667cca3d28a8133cacc22
+	parent = 43f204c1748bb447b9f380ef5b354f80f2355903
+	method = merge
+	cmdver = 0.4.1
