@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/al45tair/netifaces
+	branch = master
+	commit = 53fcdb6e5dccc84f6734939cfee1a95d3f470d7b
+	parent = d4cfa3eda3d957afbae0b51966cb12ce44228fa7
+	method = merge
+	cmdver = 0.4.1
