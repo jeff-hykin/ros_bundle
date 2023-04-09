@@ -1,4 +1,4 @@
-git subrepo clone https://github.com/ros/common_msgs repos/common_msgs
+git subrepo clone https://github.com/ros-infrastructure/rospkg repos/rospkg
 cd main
-ln -s ../../repos/common_msgs python_packages/common_msgs
+ln -s ../../repos/rospkg python_packages/rospkg
 cd ..
