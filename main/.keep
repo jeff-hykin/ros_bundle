@@ -1,0 +1,4 @@
+git subrepo clone https://github.com/ros/common_msgs repos/common_msgs
+cd main
+ln -s ../../repos/common_msgs python_packages/common_msgs
+cd ..
