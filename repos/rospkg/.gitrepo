@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/ros-infrastructure/rospkg
+	branch = master
+	commit = a4429dea9e243b36a6dac42d149cd2ac01df35fb
+	parent = 6d3f3caea43e068b6f116f1900429ecc5591e4d4
+	method = merge
+	cmdver = 0.4.1
