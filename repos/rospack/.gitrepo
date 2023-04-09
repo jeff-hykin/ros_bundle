@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/ros/rospack
+	branch = noetic-devel
+	commit = ad85a874575bbed74124b722b42b545537cc6aa3
+	parent = 00bd70547436ab5ccaa035274e57435601da9d3a
+	method = merge
+	cmdver = 0.4.1
