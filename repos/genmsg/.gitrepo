@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/ros/genmsg
+	branch = kinetic-devel
+	commit = 7d8b6ce6f43b6e39ea8261125d270f2d3062356f
+	parent = aae7fb7212c5fdb1a73f6080d9b6a703b8c6fc85
+	method = merge
+	cmdver = 0.4.1
